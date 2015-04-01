@@ -1,0 +1,65 @@
+#!/bin/bash
+#
+# mailcatcher Catches mail and serves it through a dream.
+#
+# chkconfig: 345 70 30
+# description: MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
+# processname: mailcatcher
+
+# Source function library.
+. /etc/init.d/functions
+
+RETVAL=0
+prog="mailcatcher"
+PIDFILE=/var/run/mailcatcher.pid
+
+# Declare variables for MailCatcher daemon
+HTTP_IP="<%= node['mailcatcher']['http_ip'] %>"
+HTTP_PORT="<%= node['mailcatcher']['http_port'] %>"
+SMTP_IP="<%= node['mailcatcher']['smtp_ip'] %>"
+SMTP_PORT="<%= node['mailcatcher']['smtp_port'] %>"
+BIN="<%= node['mailcatcher']['bin'] %>"
+
+start() {
+        echo -n "Starting $prog: "
+        daemon --user root --pidfile "$PIDFILE" "$BIN --http-ip $HTTP_IP --http-port $HTTP_PORT --smtp-ip $SMTP_IP --smtp-port $SMTP_PORT"
+        pid=$(pidofproc "$prog")
+        echo "$pid" > $PIDFILE
+        RETVAL=$?
+        return $RETVAL
+}
+
+stop() {
+        echo -n "Shutting down $prog: "
+        killproc -p "$PIDFILE" "$BIN"
+        RETVAL=$?
+        return $RETVAL
+}
+
+check_status() {
+        echo -n "Checking $prog status: "
+        status -p "$PIDFILE" "$BIN"
+        RETVAL=$?
+        return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        check_status
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
+exit $RETVAL
