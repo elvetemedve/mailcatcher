@@ -8,7 +8,7 @@ end
 
 # Create init scripts for MailCatcher daemon.
 case node['platform_family']
-  when 'rhel'
+when 'rhel'
   template '/etc/init.d/mailcatcher' do
     source 'mailcatcher.init.conf.erb'
     mode 0744
