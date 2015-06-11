@@ -62,6 +62,6 @@ Attributes
     <td><tt>['mailcatcher']['catchmail_bin']</tt></td>
     <td>String</td>
     <td>The location of the CatchMail binary file</td>
-    <td><tt>/usr/local/rbenv/shims/catchmail</tt></td>
+    <td><tt>catchmail</tt></td>
   </tr>
 </table>

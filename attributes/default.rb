@@ -7,4 +7,4 @@ default['mailcatcher']['smtp_port'] = 1025
 default['mailcatcher']['bin'] = 'mailcatcher'
 default['mailcatcher']['version'] = '0.6.1'
 
-default['mailcatcher']['catchmail_bin'] = '/usr/local/rbenv/shims/catchmail'
+default['mailcatcher']['catchmail_bin'] = 'catchmail'
