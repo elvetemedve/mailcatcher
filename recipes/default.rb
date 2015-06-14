@@ -7,8 +7,8 @@ rbenv_gem 'mailcatcher' do
 end
 
 # Create init scripts for MailCatcher daemon.
-case node['platform']
-when 'centos'
+case node['platform_family']
+when 'rhel'
   template '/etc/init.d/mailcatcher' do
     source 'mailcatcher.init.conf.erb'
     mode 0744
@@ -20,4 +20,3 @@ when 'centos'
     action [:enable, :start]
   end
 end
-

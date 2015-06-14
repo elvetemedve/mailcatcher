@@ -58,4 +58,10 @@ Attributes
     <td>The port of the http server</td>
     <td><tt>1080</tt></td>
   </tr>
+  <tr>
+    <td><tt>['mailcatcher']['catchmail_bin']</tt></td>
+    <td>String</td>
+    <td>The location of the CatchMail binary file</td>
+    <td><tt>catchmail</tt></td>
+  </tr>
 </table>
