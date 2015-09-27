@@ -1,67 +1,23 @@
-MailCatcher Cookbook
+mailcatcher-ng Cookbook
 ====================
 Allows for installation of MailCatcher on CentOS boxes.
 
 Recipes
 ----------
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Explanation</th>
-  </tr>
-  <tr>
-    <td><tt>mailcatcher</tt></td>
-    <td>Basic installation of MailCatcher</td>
-  </tr>
-  <tr>
-    <td><tt>mailcatcher::php</tt></td>
-    <td>Sets the php <tt>sendmail_path</tt> to use MailCatcher</td>
-  </tr>
-</table>
+
+| Name              | Explanation                                       |
+| ----------------- | ------------------------------------------------- |
+| mailcatcher       | Basic installation of MailCatcher                 |
+| mailcatcher::php  | Sets the php *sendmail_path* to use MailCatcher   |
 
 Attributes
 ----------
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['mailcatcher']['bin']</tt></td>
-    <td>String</td>
-    <td>The location of the MailCatcher binary file</td>
-    <td><tt>mailcatcher</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['mailcatcher']['smtp_ip']</tt></td>
-    <td>String</td>
-    <td>The ip address of the smtp server</td>
-    <td><tt>127.0.0.1</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['mailcatcher']['smtp_port']</tt></td>
-    <td>Integer</td>
-    <td>The port of the smtp server</td>
-    <td><tt>1025</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['mailcatcher']['http_ip']</tt></td>
-    <td>String</td>
-    <td>The ip address of the http server</td>
-    <td><tt>0.0.0.0</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['mailcatcher']['http_port']</tt></td>
-    <td>Integer</td>
-    <td>The port of the http server</td>
-    <td><tt>1080</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['mailcatcher']['catchmail_bin']</tt></td>
-    <td>String</td>
-    <td>The location of the CatchMail binary file</td>
-    <td><tt>catchmail</tt></td>
-  </tr>
-</table>
+
+| Key                               | Type      | Description                                   | Default       |
+| --------------------------------- | --------- | --------------------------------------------- | ------------- |
+| ['mailcatcher']['bin']            | String    | The location of the MailCatcher binary file   | mailcatcher   |
+| ['mailcatcher']['smtp_ip']        | String    | The ip address of the smtp server             | 127.0.0.1     |
+| ['mailcatcher']['smtp_port']      | Integer   | The port of the smtp server                   | 1025          |
+| ['mailcatcher']['http_ip']        | String    | The ip address of the http server             | 0.0.0.0       |
+| ['mailcatcher']['http_port']      | Integer   | The port of the http server                   | 1080          |
+| ['mailcatcher']['catchmail_bin']  | String    | The location of the CatchMail binary file     | catchmail     |
