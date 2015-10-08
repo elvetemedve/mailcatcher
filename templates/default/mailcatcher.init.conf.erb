@@ -19,6 +19,7 @@ HTTP_PORT="<%= node['mailcatcher']['http_port'] %>"
 SMTP_IP="<%= node['mailcatcher']['smtp_ip'] %>"
 SMTP_PORT="<%= node['mailcatcher']['smtp_port'] %>"
 BIN="<%= node['mailcatcher']['bin'] %>"
+export RBENV_VERSION="<%= node['rbenv']['global'] %>"
 
 start() {
         echo -n "Starting $prog: "
@@ -26,6 +27,7 @@ start() {
         pid=$(pidofproc "$prog")
         echo "$pid" > $PIDFILE
         RETVAL=$?
+        echo ""
         return $RETVAL
 }
 
@@ -33,6 +35,7 @@ stop() {
         echo -n "Shutting down $prog: "
         killproc -p "$PIDFILE" "$BIN"
         RETVAL=$?
+        echo ""
         return $RETVAL
 }
 
