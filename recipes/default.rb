@@ -9,7 +9,7 @@ end
 # Install MailCatcher gem
 
 rbenv_gem 'mailcatcher' do
-  rbenv_version node['mailcatcher']['ruby_version']
+  ruby_version node['mailcatcher']['ruby_version']
   send('version', node['mailcatcher']['version']) if node['mailcatcher']['version']
 end
 
