@@ -1,9 +1,20 @@
 # Install MailCatcher service
-include_recipe "rbenv::system_install"
+package 'sqlite-devel'
 
-rbenv_gem 'mailcatcher' do
-  rbenv_version node['rbenv']['global'] if node['rbenv']['global']
-  send('version', node['mailcatcher']['version']) if node['mailcatcher']['version']
+if node['mailcatcher']['install_method'] == 'rbenv'
+  include_recipe 'rbenv'
+  include_recipe 'rbenv::ruby_build'
+
+  rbenv_ruby node['mailcatcher']['ruby_version']
+
+  rbenv_gem 'mailcatcher' do
+    ruby_version node['mailcatcher']['ruby_version']
+    send('version', node['mailcatcher']['version']) if node['mailcatcher']['version']
+  end
+else
+  gem_package 'mailcatcher' do
+    send('version', node['mailcatcher']['version']) if node['mailcatcher']['version']
+  end
 end
 
 # Create init scripts for MailCatcher daemon.

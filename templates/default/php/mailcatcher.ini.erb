@@ -1,1 +1,17 @@
-sendmail_path = <%= node['mailcatcher']['catchmail_bin'] %> -f noreply@mailcatcher.me
+<%
+if node['mailcatcher']['install_method'] == 'rbenv'
+  args = [
+    '/bin/env',
+    "RBENV_VERSION=#{node['mailcatcher']['ruby_version']}",
+    "#{node['rbenv']['root_path']}/shims/#{node['mailcatcher']['catchmail_bin']}"
+  ];
+else
+  args = [node['mailcatcher']['catchmail_bin']]
+end
+
+if node['mailcatcher']['php_envelope_from']
+  args << "-f#{node['mailcatcher']['php_envelope_from']}"
+end
+
+%>
+sendmail_path = '<%=args.join(' ')%>'
