@@ -22,6 +22,6 @@ Attributes
 | ['mailcatcher']['http_port']        | Integer   | The port of the http server                   | 1080          |
 | ['mailcatcher']['catchmail_bin']    | String    | The location of the CatchMail binary file     | catchmail     |
 | ['mailcatcher']['install_method']   | String    | The install method, rbenv or system           | rbenv         |
-| ['mailcatcher']['ruby_version']     | String    | The rbenv ruby version to use                 | 2.1.7         |
+| ['mailcatcher']['ruby_version']     | String    | The rbenv ruby version to use                 | 2.2.3         |
 | ['mailcatcher']['version']          | String    | The mailcatcher gem version to use            | 0.6.1         |
 | ['mailcatcher']['php_envelope_from']| String    | An optional enveople from email address       | nil           |
