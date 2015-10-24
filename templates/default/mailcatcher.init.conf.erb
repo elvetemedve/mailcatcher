@@ -8,6 +8,10 @@
 
 # Source function library.
 . /etc/init.d/functions
+<% if node['mailcatcher']['install_method'] == 'rbenv' %>
+. /etc/profile.d/rbenv.sh
+export RBENV_VERSION="<%= node['mailcatcher']['ruby_version'] %>"
+<% end %>
 
 RETVAL=0
 prog="mailcatcher"
