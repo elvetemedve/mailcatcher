@@ -1,8 +1,15 @@
-# Install MailCatcher service
-include_recipe "rbenv::system_install"
+# Prepare dependencies
+include_recipe 'rbenv::default'
+include_recipe 'rbenv::ruby_build'
+
+rbenv_ruby node['mailcatcher']['ruby_version'] do
+  global true
+end
+
+# Install MailCatcher gem
 
 rbenv_gem 'mailcatcher' do
-  rbenv_version node['rbenv']['global'] if node['rbenv']['global']
+  ruby_version node['mailcatcher']['ruby_version']
   send('version', node['mailcatcher']['version']) if node['mailcatcher']['version']
 end
 
