@@ -1,5 +1,7 @@
 mailcatcher-ng Cookbook
 ====================
+[![Build Status](https://travis-ci.org/elvetemedve/mailcatcher.svg)](https://travis-ci.org/elvetemedve/mailcatcher)
+
 Allows for installation of MailCatcher on CentOS boxes.
 
 Recipes
